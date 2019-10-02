@@ -1,4 +1,7 @@
 import $ from 'jquery';
+import { randomNumber } from '../helpers/random';
+
+
 
 export const createRouletteTable = function (array, whereTo) {
   array.forEach((e) => {
@@ -13,25 +16,52 @@ export const createRouletteTable = function (array, whereTo) {
   });
 };
 
+let top100 = -3;
+let top50 = -3;
+let top10 = -3;
+let top5 = -3;
+let top1 = -3;
+
 export const createChips = function (nombre, whereTo) {
-  let balance = nombre;
-  while (balance > 0) {
+  let amount = nombre;
+  while (amount > 0) {
     const jeton = $('<div class="jeton"></div>');
-    if (balance >= 100) {
+    
+    if (amount >= 100) {
+      if($(".jeton100").length > 0){
+        jeton.css({"top" : top100 + "px", "left" : randomNumber(-5,5) + 160 + "px"})
+        top100 -= 3;
+      }
       jeton.addClass('jeton100').attr('id', '100j');
-      balance -= 100;
-    } else if (balance >= 50) {
+      amount -= 100;
+    } else if (amount >= 50) {
+      if($(".jeton50").length > 0){
+        jeton.css({"top" : top50 + "px", "left" : randomNumber(-5,5) + 120 + "px"})
+        top50 -= 3;
+      }
       jeton.addClass('jeton50').attr('id', '50j');
-      balance -= 50;
-    } else if (balance >= 10) {
+      amount -= 50;
+    } else if (amount >= 10) {
+      if($(".jeton10").length > 0){
+        jeton.css({"top" : top10 + "px", "left" : randomNumber(-5,5) + 80 + "px"})
+        top10 -= 3;
+      }
       jeton.addClass('jeton10').attr('id', '10j');
-      balance -= 10;
-    } else if (balance >= 5) {
+      amount -= 10;
+    } else if (amount >= 5) {
+      if($(".jeton5").length > 0){
+        jeton.css({"top" : top5 + "px", "left" : randomNumber(-5,5) + 40 + "px"})
+        top5 -= 3;
+      }
       jeton.addClass('jeton5').attr('id', '5j');
-      balance -= 5;
-    } else if (balance >= 1) {
+      amount -= 5;
+    } else if (amount >= 1) {
+      if($(".jeton1").length > 0){
+        jeton.css({"top" : top1 + "px", "left" : randomNumber(-5,5) + "px"})
+        top1 -= 3;
+      }
       jeton.addClass('jeton1').attr('id', '1j');
-      balance -= 1;
+      amount -= 1;
     } else {
       jeton.text('Plus de jetons.');
     }
