@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>Document</title>
+        <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        />
+        <link
+            href="https://fonts.googleapis.com/css?family=Comfortaa:400,700&display=swap"
+            rel="stylesheet"
+        />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <div class="container-fluid game">
+            <div class="roulette">
+                <img src="assets/images/roulette.png" alt="" />
+            </div>
+
+            <div class="jeu">
+                <div class="odd-even">
+                    <div class="odd" data-type="oddeven" id="odd">
+                        <p>ODD</p>
+                    </div>
+                    <div class="reds" data-type="color" id="reds">
+                        <div class="square"></div>
+                    </div>
+                    <div class="blacks" data-type="color" id="blacks">
+                        <div class="square"></div>
+                    </div>
+                    <div class="even" data-type="oddeven" id="even">
+                        <p>EVEN</p>
+                    </div>
+                </div>
+
+                <div class="numbers"></div>
+            </div>
+        </div>
+
+        <div class="container money">
+            <div class="balance">
+                <h2>BALANCE : 500</h2>
+                <div class="bets">
+                    <h2>Your bets :</h2>
+                </div>
+            </div>
+            <div class="jetons">
+                <div class="boite-a-jetons">
+                    <div class="jeton jeton1" id="1j"></div>
+                    <div class="jeton jeton5" id="5j"></div>
+                    <div class="jeton jeton10" id="10j"></div>
+                    <div class="jeton jeton50" id="50j"></div>
+                    <div class="jeton jeton100" id="100j"></div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

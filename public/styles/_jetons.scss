@@ -1,0 +1,29 @@
+.boite-a-jetons{
+	display:flex;
+	padding: 1rem 2rem;
+	border : 5px solid black;
+	border-radius: 15px;
+	background-color : silver;
+}
+
+.jeton1, .jeton5, .jeton10, .jeton50, .jeton100{
+	background-size: cover;
+	width: 40px;
+	height: 40px;
+}
+
+.jeton1{
+	background-image : url(./assets/images/icons1.png);
+}
+.jeton5{
+	background-image : url(./assets/images/icons5.png);
+}
+.jeton10{
+	background-image : url(./assets/images/icons10.png);
+}
+.jeton50{
+	background-image : url(./assets/images/icons50.png);
+}
+.jeton100{
+	background-image : url(./assets/images/icons100.png);
+}
