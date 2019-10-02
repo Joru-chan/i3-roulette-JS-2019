@@ -1,7 +1,7 @@
 import $ from 'jquery';
 import draggable from 'jquery-ui/ui/widgets/draggable';
 import droppable from 'jquery-ui/ui/widgets/droppable';
-import { createRouletteTable } from './app/functions/creation';
+import { createRouletteTable, createChips } from './app/functions/creation';
 import { numbers } from './app/data/numbers';
 import { randomNumber } from './app/helpers/random';
 
@@ -11,6 +11,7 @@ const valeursMisees = [];
 let balance = 500;
 
 createRouletteTable(numbers, $('.numbers'));
+createChips(balance, $('.boite-a-jetons'));
 
 $('.jeton').draggable({
   drag() { jetonValeur = parseInt($(this).attr('id'), 10); },
@@ -45,7 +46,7 @@ $('.number, .odd, .reds, .blacks, .even').droppable({
         p.text('Toto');
         break;
     }
-    valeursMisees.push($(this).attr('id'));
+    valeursMisees.push({ numero: $(this).attr('id'), jeton: jetonValeur });
     p.prepend(`${jetonValeur} on `);
     p.appendTo(bets);
     balance -= jetonValeur;

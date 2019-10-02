@@ -1,0 +1,133 @@
+* {
+  box-sizing: border-box; }
+
+html {
+  height: 100%; }
+
+body {
+  height: 100%;
+  background: green; }
+
+.container-fluid, .container {
+  display: flex;
+  justify-content: center; }
+
+p {
+  margin: 0; }
+
+.jeu {
+  transform: rotate(-90deg);
+  width: 300px;
+  margin-left: 8rem;
+  display: flex;
+  justify-content: center; }
+  .jeu .odd-even {
+    display: flex;
+    flex-direction: column;
+    margin-top: 34px;
+    width: 50px;
+    font-weight: bold; }
+    .jeu .odd-even p {
+      border: 1px solid lightgrey;
+      border-radius: 50%;
+      min-width: 80px;
+      color: white;
+      padding: 5px;
+      transform: rotate(90deg); }
+  .jeu .odd, .jeu .even, .jeu .reds, .jeu .blacks {
+    flex-basis: 25%;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    box-shadow: 2px 0 0 0 lightgrey,  0 2px 0 0 lightgrey,  2px 2px 0 0 lightgrey, 2px 0 0 0 lightgrey inset,  0 2px 0 0 lightgrey inset;
+    cursor: pointer; }
+  .jeu .square {
+    border: 1px solid lightgrey;
+    transform: rotate(45deg);
+    width: 35px;
+    height: 35px; }
+  .jeu .reds .square {
+    background: red; }
+  .jeu .blacks .square {
+    background: black; }
+  .jeu .odd {
+    border-top-left-radius: 15px; }
+  .jeu .even {
+    border-bottom-left-radius: 15px; }
+  .jeu .odd:hover, .jeu .even:hover, .jeu .reds:hover, .jeu .blacks:hover {
+    background: #004d00 !important; }
+  .jeu .numbers {
+    display: flex;
+    flex-wrap: wrap;
+    width: 150px;
+    color: white;
+    cursor: pointer; }
+  .jeu .number {
+    flex-basis: 33.33334%;
+    text-align: center;
+    padding: 5px;
+    box-shadow: 2px 0 0 0 lightgrey,  0 2px 0 0 lightgrey,  2px 2px 0 0 lightgrey, 2px 0 0 0 lightgrey inset,  0 2px 0 0 lightgrey inset; }
+  .jeu .number:first-of-type {
+    flex-basis: 100%;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px; }
+  .jeu .red:hover {
+    color: yellow;
+    background: #990000 !important; }
+  .jeu .green:hover {
+    color: yellow;
+    background: #004d00 !important; }
+  .jeu .black:hover {
+    color: yellow;
+    background: #333333 !important; }
+
+.roulette {
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+  .roulette img {
+    width: 300px; }
+
+.rotated {
+  animation: rotate 0.4s linear forwards;
+  animation-iteration-count: 7.5; }
+
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg); } }
+
+.money {
+  justify-content: space-around;
+  font-family: 'Comfortaa', cursive;
+  font-weight: bold; }
+
+.boite-a-jetons {
+  display: flex;
+  padding: 1rem 2rem;
+  border: 5px solid black;
+  border-radius: 15px;
+  background-color: silver; }
+
+.jeton1, .jeton5, .jeton10, .jeton50, .jeton100 {
+  background-size: cover;
+  width: 40px;
+  height: 40px; }
+
+.jeton1 {
+  background-image: url(4a2447a8d0907b826cb83f45855bb589.png); }
+
+.jeton5 {
+  background-image: url(2e418dce6c860e58381a9c6562bbfe11.png); }
+
+.jeton10 {
+  background-image: url(a0504dfc7e14f54c2832280af45e798c.png); }
+
+.jeton50 {
+  background-image: url(2e4033720374f4cba91dd608c342d222.png); }
+
+.jeton100 {
+  background-image: url(f174ff1951a4210395b876585b8ad806.png); }
+
+
+/*# sourceMappingURL=styles.css.map*/
