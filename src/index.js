@@ -8,7 +8,8 @@ import { randomNumber } from './app/helpers/random';
 let winningNumber = '';
 let jetonValeur = 0;
 const valeursMisees = [];
-let balance = 500;
+let balance = 256;
+let winningColor = '';
 
 createRouletteTable(numbers, $('.numbers'));
 createChips(balance, $('.boite-a-jetons'));
@@ -60,12 +61,17 @@ $('.roulette').on('click', function () {
   setTimeout(() => {
     winningNumber = randomNumber(0, 36);
     $(this).removeClass('rotated');
-    if (valeursMisees.includes(winningNumber.toString())) {
-      console.log('YAY');
-    }
     for (const item of numbers) {
       if (item.number === winningNumber) {
-        console.log(item.color);
+        winningColor = item.color;
+      }
+    }
+    for (const valeurMisee of valeursMisees) {
+      if (valeurMisee.numero === winningNumber.toString()) {
+        console.log('YAY');
+      }
+      if (valeurMisee.numero === winningColor) {
+        console.log('bonne couleur');
       }
     }
   }, 3000);
