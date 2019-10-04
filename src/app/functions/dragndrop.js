@@ -1,25 +1,27 @@
-import $ from "jquery";
-import { valeursMisees  } from './promises';
-import drop from "jquery-ui/ui/widgets/droppable";
-import drag from "jquery-ui/ui/widgets/draggable";
+import $ from 'jquery';
+import drop from 'jquery-ui/ui/widgets/droppable';
+import drag from 'jquery-ui/ui/widgets/draggable';
+import {
+  balance, valeursMisees,
+} from './promises';
+
 
 export let jetonValeur = 0;
-export let newValeur;
 
-export const dragChips = function(){
-    $('.jeton').draggable({
-        drag() { jetonValeur = parseInt($(this).attr('id'), 10); },
-    });
-}
+export const dragChips = function () {
+  $('.jeton').draggable({
+    drag() { jetonValeur = parseInt($(this).attr('id'), 10); },
+  });
+};
 
 
-export const dropChips = function(){
-    $('.number, .odd, .reds, .blacks, .even').droppable({
-    drop:function(amount) {
+export const dropChips = function () {
+  $('.number, .odd, .reds, .blacks, .even').droppable({
+    drop() {
       const p = $("<p class='bet'></p>");
       const bets = $('.bets');
       const dataType = $(this).attr('data-type');
-  
+
       switch (dataType) {
         case 'oddeven':
           p.text($(this).hasClass('odd') ? 'Odd' : 'Even');
@@ -36,18 +38,18 @@ export const dropChips = function(){
             p.text(`${$(this).attr('id')} Black`);
           }
           break;
-  
+
         default:
           p.text('Toto');
           break;
       }
-      
+
       valeursMisees.push({ numero: $(this).attr('id'), jeton: jetonValeur });
       p.prepend(`${jetonValeur} on `);
       p.appendTo(bets);
-      
-      newValeur = amount - jetonValeur;
-      $('.balance > h2').text(`BALANCE : ${newValeur}`);
+
+      balance.current -= jetonValeur;
+      $('.balance > h2').text(`BALANCE : ${balance.current}`);
     },
   });
-}
+};

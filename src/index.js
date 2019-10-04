@@ -1,25 +1,23 @@
 import $ from 'jquery';
-import { balance, getWinningNumber, winningNumber, winningColor, valeursMisees  } from './app/functions/promises';
 import draggable from 'jquery-ui/ui/widgets/draggable';
 import droppable from 'jquery-ui/ui/widgets/droppable';
-import { createRouletteTable, createChips } from './app/functions/creation';
+import {
+  balance, getWinningNumber, winningNumber, winningColor, valeursMisees,
+} from './app/functions/promises';
+import { createRouletteTable, createChips, distributeChips } from './app/functions/creation';
 import { numbers } from './app/data/numbers';
-import { dragChips, dropChips, jetonValeur } from './app/functions/dragndrop';
+import { dragChips, jetonValeur, dropChips } from './app/functions/dragndrop';
 
-$('.balance > h2').text(`BALANCE : ${balance}`);
+
+$('.balance > h2').text(`BALANCE : ${balance.current}`);
 
 createRouletteTable(numbers, $('.numbers'));
-createChips(balance, $('.boite-a-jetons'));
-
-
+createChips(balance.current);
 dragChips();
 dropChips();
-$('.number, .odd, .reds, .blacks, .even').on("drop", balance);
 
-$('.roulette').on('click', function() {
+$('.roulette').on('click', function () {
   $(this).toggleClass('rotated');
-  $(".number").removeClass("winning");
+  $('.number').removeClass('winning');
   getWinningNumber(3000);
-  console.log(valeursMisees);
 });
-
