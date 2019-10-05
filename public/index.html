@@ -18,13 +18,12 @@
   </head>
   <body>
     <div class="container-fluid game">
-      <div class="roulette">
-        <img src="assets/images/roulette.png" alt="" />
-      </div>
-
       <div class="jeu">
+        <div class="bets">
+          <h3>Past bets :</h3>
+        </div>
         <div class="odd-even">
-          <div class="odd" data-type="oddeven" id="odd">
+          <div class="odd" data-type="oddeven" id="false">
             <p>ODD</p>
           </div>
           <div class="reds" data-type="color" id="red">
@@ -33,24 +32,24 @@
           <div class="blacks" data-type="color" id="black">
             <div class="square"></div>
           </div>
-          <div class="even" data-type="oddeven" id="even">
+          <div class="even" data-type="oddeven" id="true">
             <p>EVEN</p>
           </div>
         </div>
 
         <div class="numbers"></div>
       </div>
-    </div>
 
-    <div class="container money">
-      <div class="balance">
-        <h2>BALANCE :</h2>
-        <div class="bets">
-          <h2>Past bets :</h2>
+      <div class="roulette">
+        <div class="balance">
+          <h2>BALANCE :</h2>
         </div>
-      </div>
-      <div class="jetons">
-        <div class="boite-a-jetons"></div>
+        <img src="assets/images/roulette.png" alt="" />
+        <div class="container money">
+          <div class="jetons">
+            <div class="boite-a-jetons"></div>
+          </div>
+        </div>
       </div>
     </div>
   </body>

@@ -14,7 +14,10 @@ body{
 
 .container-fluid, .container {
   display: flex;
-  justify-content: center;
+}
+
+.container-fluid.game{
+  max-width: 1200px;
 }
 
 p {
@@ -23,18 +26,26 @@ p {
 
 .jeu {
   
-  transform: rotate(-90deg);
-  width: 300px;
-  margin-left: 8rem;
+  transform: scale(1.2);
+  width: 600px;
+  
   display: flex;  
   justify-content: center;
+  margin-top: 9rem;
+  .bets{
+    align-self: center;
+    margin-right: 2rem;
+    transition: 250ms all ease-in-out;
+  }
   .odd-even {
+    
     display: flex;
     flex-direction: column;
     margin-top: 34px;
     width: 50px;
     font-weight: bold;
     p {
+      
       border: 1px solid lightgrey;
       border-radius: 50%;
       min-width: 80px;
@@ -45,6 +56,7 @@ p {
   }
   
   .odd, .even, .reds, .blacks {
+    
     flex-basis: 25%;
     display: flex;
     align-items: center;
@@ -70,6 +82,7 @@ p {
   }
   
   .odd {
+    
     border-top-left-radius: 15px;
   }
   
@@ -82,6 +95,7 @@ p {
   }
   
   .numbers {
+    
     display: flex;
     flex-wrap: wrap;
     width: 150px;
@@ -121,6 +135,7 @@ p {
 
 
 .roulette {
+  flex-direction: column;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -145,9 +160,11 @@ p {
   justify-content: space-around;
   font-family: 'Comfortaa', cursive;
   font-weight: bold;
+  
 }
 
 .boite-a-jetons{
+  margin-top: 2rem;
   width: 220px;
   height: 50px;
   position: relative;

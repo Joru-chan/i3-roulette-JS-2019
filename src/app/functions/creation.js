@@ -17,7 +17,8 @@ export const createRouletteTable = function (array, whereTo) {
 
 let newTop = 0;
 let amount = 0;
-const jetonValues = [100, 50, 10, 5, 1];
+let customId = 0;
+export const jetonValues = [100, 50, 10, 5, 1];
 
 const distributeChips = function (chipAmount) {
   while (amount >= chipAmount) {
@@ -26,9 +27,10 @@ const distributeChips = function (chipAmount) {
       newTop -= 3;
       const left = parseInt($(`.jeton${chipAmount}`).css('left'), 10);
       div.css({ top: `${newTop}px`, left: `${randomNumber(-5, 5) + left}px` });
+      customId ++;
     }
     div.addClass('jeton');
-    div.addClass(`jeton${chipAmount}`).attr('id', `${chipAmount}j`);
+    div.addClass(`jeton${chipAmount}`).attr('id', `${chipAmount}j${customId}`);
     div.appendTo($('.boite-a-jetons'));
     amount -= chipAmount;
   }

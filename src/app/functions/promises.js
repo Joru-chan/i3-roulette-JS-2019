@@ -2,10 +2,11 @@ import $ from 'jquery';
 import { randomNumber } from '../helpers/random';
 import { numbers } from '../data/numbers';
 import { createChips } from './creation';
-import { dragChips } from './dragndrop';
+import { dragChips, dropChips, listIds } from './dragndrop';
 
 let winningNumber = '';
 let winningColor = '';
+let isOddEven = "";
 export const balance = { current: 532 };
 export let valeursMisees = [];
 
@@ -23,7 +24,7 @@ export const getWinningNumber = function (time) {
     .then((number) => { console.log(number); return number; })
     .then((number) => {
       winningNumber = number;
-      $('.roulette').removeClass('rotated');
+      $('.roulette > img').removeClass('rotated');
       for (const div of $('.number')) {
         if (parseInt($(div).attr('id'), 10) === winningNumber) {
           $(div).addClass('winning');
@@ -35,16 +36,26 @@ export const getWinningNumber = function (time) {
         }
       }
       for (const valeurMisee of valeursMisees) {
+        
         if (valeurMisee.numero === winningNumber.toString()) {
           balance.current += valeurMisee.jeton * 35;
         } else if (valeurMisee.numero === winningColor) {
           balance.current += valeurMisee.jeton * 2;
+        
         }
         $('.balance > h2').text(`BALANCE : ${balance.current}`);
       }
     })
     .then(() => {
       $('.boite-a-jetons').empty();
+      for( const id of listIds ){
+        if($(".valeurMisee").hasClass(id)){
+          $(".valeurMisee").removeClass(id); 
+        }
+      } 
+
+      $(".valeurMisee").removeClass("valeurMisee");
+      
       valeursMisees = [];
       createChips(balance.current);
       dragChips();
