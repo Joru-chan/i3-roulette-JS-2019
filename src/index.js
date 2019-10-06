@@ -16,11 +16,7 @@ createRouletteTable(numbers, $('.numbers'));
 createChips(balance.current);
 dragChips();
 dropChips();
-$(".valeurMisee").droppable({
-  out: function(){
-    balance.current += jetonValeur;
-  }
-})
+
 
 
 

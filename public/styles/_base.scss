@@ -36,6 +36,9 @@ p {
     align-self: center;
     margin-right: 2rem;
     transition: 250ms all ease-in-out;
+    .bet:last-of-type{
+      color:red;
+    }
   }
   .odd-even {
     

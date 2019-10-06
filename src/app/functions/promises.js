@@ -39,9 +39,15 @@ export const getWinningNumber = function (time) {
         
         if (valeurMisee.numero === winningNumber.toString()) {
           balance.current += valeurMisee.jeton * 35;
-        } else if (valeurMisee.numero === winningColor) {
+          console.log("Vous avez trouvé LE chiffre!!");
+        } 
+        if (valeurMisee.numero === winningColor) {
           balance.current += valeurMisee.jeton * 2;
-        
+          console.log("Bien deviné pour la couleur !");
+        }
+        if (valeurMisee.numero === (winningNumber % 2 === 0).toString()){
+          balance.current += valeurMisee.jeton * 2;
+          console.log("Bien deviné pour le pair/impair !");
         }
         $('.balance > h2').text(`BALANCE : ${balance.current}`);
       }
@@ -55,7 +61,7 @@ export const getWinningNumber = function (time) {
       } 
 
       $(".valeurMisee").removeClass("valeurMisee");
-      
+      $('.bet').remove();
       valeursMisees = [];
       createChips(balance.current);
       dragChips();
