@@ -14837,7 +14837,11 @@ var getWinningNumber = function getWinningNumber(time) {
       }
     }
 
-    jquery__WEBPACK_IMPORTED_MODULE_0___default()(".lastBet").append("<div class='separator'></div>");
+    if (valeursMisees.length !== 0) {
+      debugger;
+      jquery__WEBPACK_IMPORTED_MODULE_0___default()(".lastBet").append("<div class='separator'></div>");
+    }
+
     valeursMisees = [];
     Object(_creation__WEBPACK_IMPORTED_MODULE_3__["createChips"])(balance.current);
     Object(_dragndrop__WEBPACK_IMPORTED_MODULE_4__["dragChips"])();

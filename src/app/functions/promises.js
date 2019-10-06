@@ -62,7 +62,10 @@ export const getWinningNumber = function (time) {
       $(`.lastBet`).append("<p>" + $(bet).text() + "</p>");
       $(bet).remove();
     }
-    $(".lastBet").append("<div class='separator'></div>");
+    if(valeursMisees.length !== 0){
+      debugger;
+      $(".lastBet").append("<div class='separator'></div>");
+    }
     valeursMisees = [];
     createChips(balance.current);
     dragChips();
