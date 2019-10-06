@@ -1,7 +1,7 @@
 import $ from 'jquery';
 import { randomNumber } from '../helpers/random';
 import { numbers } from '../data/numbers';
-import { createChips } from './creation';
+import { createChips, showToast } from './creation';
 import { dragChips, listIds } from './dragndrop';
 import { setWinningColor } from './setters';
 
@@ -21,64 +21,56 @@ export const getWinningNumber = function (time) {
     }, time);
   });
 
-  timeOut
-    .then((number) => {
-      winningNumber = number;
-      $('.roulette > img').removeClass('rotated');
-      for (const div of $('.number')) {
-        if (parseInt($(div).attr('id'), 10) === winningNumber) {
-          $(div).addClass('winning');
-        }
+  timeOut.then((number) => {
+    winningNumber = number;
+    $('.roulette > img').removeClass('rotated');
+    for (const div of $('.number')) {
+      if (parseInt($(div).attr('id'), 10) === winningNumber) {
+        $(div).addClass('winning');
       }
-      winningColor = setWinningColor(numbers);
-      
-      for (const valeurMisee of valeursMisees) {
-        let gains = 0;
-        if (valeurMisee.numero === winningNumber.toString()) {
-          gains = valeurMisee.jeton * 35;
-          balance.current += gains;
-          
-        } 
-        if (valeurMisee.numero == winningColor) {
-          gains = valeurMisee.jeton * 2;
-          balance.current += gains;
-          
-        }
-        if (valeurMisee.numero === (winningNumber % 2 === 0).toString()){
-          gains = valeurMisee.jeton * 2;
-          balance.current += gains;
-          
-        }
-        $('.balance > h2').text(`BALANCE : ${balance.current}`);
-        
-      }
-    })
-    .then(() => {
-      $('.boite-a-jetons').empty();
-      for( const id of listIds ){
-        if($(".valeurMisee").hasClass(id)){
-          $(".valeurMisee").removeClass(id); 
-        }
+    }
+    winningColor = setWinningColor(numbers);
+    for (const valeurMisee of valeursMisees) {
+      let gains = 0;
+      if (valeurMisee.numero === winningNumber.toString()) {
+        gains = valeurMisee.jeton * 35;
+        balance.current += gains;
+        showToast();
       } 
-
-      $(".valeurMisee").removeClass("valeurMisee");
-      for( const bet of $(".bet") ){
-        $(".lastBet").show();
-        $(`.lastBet`).append("<p>" + $(bet).text() + "</p>");
-        $(bet).remove();
+      if (valeurMisee.numero == winningColor) {
+        gains = valeurMisee.jeton * 2;
+        balance.current += gains;
+        showToast();
       }
-      $(".lastBet").append("<div class='separator'></div>");
-      
-      
-      valeursMisees = [];
-      createChips(balance.current);
-      dragChips();
-      if(balance.current === 0){
-        $(".game").empty().append("<div class='perdu'><p>Vous avez perdu :(</p><button class='btn btn-success restart'>Rejouer?</button></div>")
-        $(".restart").on("click", function(){
-          location.href=location.href;
-        });
+      if (valeurMisee.numero === (winningNumber % 2 === 0).toString()){
+        gains = valeurMisee.jeton * 2;
+        balance.current += gains;
+        showToast();
       }
-    })
-    .catch((error) => console.log(error));
+      $('.balance > h2').text(`BALANCE : ${balance.current}`);
+    }
+  }).then(() => {
+    $('.boite-a-jetons').empty();
+    for( const id of listIds ){
+      if($(".valeurMisee").hasClass(id)){
+        $(".valeurMisee").removeClass(id); 
+      }
+    } 
+    $(".valeurMisee").removeClass("valeurMisee");
+    for( const bet of $(".bet") ){
+      $(".lastBet").show();
+      $(`.lastBet`).append("<p>" + $(bet).text() + "</p>");
+      $(bet).remove();
+    }
+    $(".lastBet").append("<div class='separator'></div>");
+    valeursMisees = [];
+    createChips(balance.current);
+    dragChips();
+    if(balance.current === 0){
+      $(".game").empty().append("<div class='perdu'><p>Vous avez perdu :(</p><button class='btn btn-success restart'>Rejouer?</button><img src='/public/assets/images/loss.gif' /></div>")
+      $(".restart").on("click", function(){
+        location.href=location.href;
+      });
+    }
+  }).catch((error) => console.log(error));
 };

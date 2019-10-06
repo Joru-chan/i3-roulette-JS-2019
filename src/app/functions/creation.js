@@ -1,7 +1,6 @@
 import $ from 'jquery';
 import { randomNumber } from '../helpers/random';
 
-
 export const createRouletteTable = function (array, whereTo) {
   array.forEach((e) => {
     const div = $('<div></div>');
@@ -46,13 +45,19 @@ export const createChips = function (nombre) {
   }
 };
 
-
 export const createBetText = function(id, amount){
   if(id === "true"){
-    $(`.${id}`).text(`${amount} on Even`);
+    $(`.${id}`).text(`${amount} sur Pair`);
   } else if (id === "false"){
-    $(`.${id}`).text(`${amount} on Odd`);
+    $(`.${id}`).text(`${amount} sur Impair`);
   } else{
-    $(`.${id}`).text(`${amount} on ${id}`);
+    $(`.${id}`).text(`${amount} sur ${id}`);
   }
+}
+
+export const showToast = function(){
+  $(".toast").toast({
+    delay: 3000,
+  });
+  $(".toast").toast('show');
 }

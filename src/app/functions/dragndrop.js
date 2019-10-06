@@ -27,7 +27,7 @@ export const dropChips = function () {
       const bets = $('.bets');
       
       if ($(this).hasClass(ui.draggable[0].id)){
-        console.log("déjà misé");
+        console.log("ce jeton est déjà sur cette case");
       } else {
         listIds.push(ui.draggable[0].id);
         $(this).addClass(`valeurMisee ${ui.draggable[0].id}`);

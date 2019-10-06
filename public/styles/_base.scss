@@ -4,12 +4,13 @@
 
 html{
   height: 100%;
-  
 }
 
 body{
   height: 100%;
   background: green;
+  overflow: hidden;
+  position:relative;
 }
 
 .container-fluid, .container {
@@ -24,27 +25,27 @@ p {
   margin: 0;
 }
 
-.perdu{
-  display: flex;  
+.title{
+  display:flex;
   flex-direction: column;
-  margin: 0 auto;
-  margin-top: 9rem;
-  p {
-    font-size: 2rem;
-  }
-  button{
-    margin-top: 2rem;
+  align-items:center;
+  margin-top: 5rem;
+  p{
+    font-style :italic;
   }
 }
 
 .jeu {
-  
   transform: scale(1.2);
   width: 600px;
-  
   display: flex;  
   justify-content: center;
   margin-top: 9rem;
+  .winning{
+    background-color: blue !important;
+    box-shadow: 0px 0px 15px 5px rgba(yellow, 1) !important;
+    transition: all 250ms ease-in;
+  }
   .bets{
     align-self: center;
     margin-right: 2rem;
@@ -71,14 +72,12 @@ p {
     }
   }
   .odd-even {
-    
     display: flex;
     flex-direction: column;
     margin-top: 34px;
     width: 50px;
     font-weight: bold;
     p {
-      
       border: 1px solid lightgrey;
       border-radius: 50%;
       min-width: 80px;
@@ -87,9 +86,7 @@ p {
       transform: rotate(90deg);
     }
   }
-  
   .odd, .even, .reds, .blacks {
-    
     flex-basis: 25%;
     display: flex;
     align-items: center;
@@ -98,80 +95,56 @@ p {
     box-shadow: 2px 0 0 0 lightgrey,  0 2px 0 0 lightgrey,  2px 2px 0 0 lightgrey, 2px 0 0 0 lightgrey inset,  0 2px 0 0 lightgrey inset;
     cursor: pointer;
   }
-  
   .square {
     border: 1px solid lightgrey;
     transform: rotate(45deg);
     width: 35px;
     height: 35px;
   }
-  
   .reds .square {
     background: red;
   }
-  
   .blacks .square {
     background: black;
   }
-  
   .odd {
-    
     border-top-left-radius: 15px;
   }
-  
   .even {
     border-bottom-left-radius: 15px;
   }
-  
   .odd:hover, .even:hover, .reds:hover, .blacks:hover {
     background: #004d00 !important;
   }
-  
   .numbers {
-    
     display: flex;
     flex-wrap: wrap;
     width: 150px;
     color: white;
     cursor: pointer;
   }
-  
   .number {
     flex-basis: 33.33334%;
     text-align: center;
     padding: 5px;
     box-shadow: 2px 0 0 0 lightgrey,  0 2px 0 0 lightgrey,  2px 2px 0 0 lightgrey, 2px 0 0 0 lightgrey inset,  0 2px 0 0 lightgrey inset;
   }
-  
   .number:first-of-type {
     flex-basis: 100%;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
   }
-  
   .red:hover {
     color: yellow;
     background: #990000 !important;
   }
-  
   .green:hover {
     color: yellow;
     background: #004d00 !important;
   }
-  
   .black:hover {
     color: yellow;
     background: #333333 !important;
-  }
-}
-
-.title{
-  display:flex;
-  flex-direction: column;
-  align-items:center;
-  margin-top: 2rem;
-  p{
-    font-style :italic;
   }
 }
 
@@ -183,7 +156,6 @@ p {
   img{
     width: 300px;
   }
-  
 }
 
 .rotated {
@@ -197,42 +169,58 @@ p {
   }
 }
 
-
 .money{
   justify-content: space-around;
   font-family: 'Comfortaa', cursive;
   font-weight: bold;
-  
-}
-
-.boite-a-jetons{
-  margin-top: 2rem;
-  width: 220px;
-  height: 50px;
-  position: relative;
-  .jeton{
-    position:absolute;
-    top : 0px;
-  }
-  .jeton1{
-    left: 0px; 
-  }
-  .jeton5{
-    left: 40px;
-  }
-  .jeton10{
-    left : 80px;
-  }
-  .jeton50{
-    left: 120px;
-  }
-  .jeton100{
-    left: 160px;
+  .boite-a-jetons{
+    margin-top: 2rem;
+    width: 220px;
+    height: 50px;
+    position: relative;
+    .jeton{
+      position:absolute;
+      top : 0px;
+    }
+    .jeton1{
+      left: 0px; 
+    }
+    .jeton5{
+      left: 40px;
+    }
+    .jeton10{
+      left : 80px;
+    }
+    .jeton50{
+      left: 120px;
+    }
+    .jeton100{
+      left: 160px;
+    }
   }
 }
 
-.winning{
-  background-color: blue !important;
-  box-shadow: 0px 0px 15px 5px rgba(yellow, 1) !important;
-  transition: all 250ms ease-in;
+.perdu{
+  display: flex;  
+  flex-direction: column;
+  margin: 0 auto;
+  margin-top: 9rem;
+  p {
+    font-size: 2rem;
+  }
+  button{
+    margin: 2rem 0;
+  }
+  img{
+    border-radius: 15px;
+  }
+}
+
+.toast{
+  position: absolute; 
+  bottom: 15%; 
+  right: 15%;
+  img{
+    width: 100px;
+  }
 }
