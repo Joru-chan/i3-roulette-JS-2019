@@ -2,12 +2,15 @@ import $ from 'jquery';
 import { randomNumber } from '../helpers/random';
 import { numbers } from '../data/numbers';
 import { createChips } from './creation';
-import { dragChips, dropChips, listIds } from './dragndrop';
+import { dragChips, listIds } from './dragndrop';
+import { setWinningColor } from './setters';
 
-let winningNumber = '';
-let winningColor = '';
-let isOddEven = "";
-export const balance = { current: 532 };
+export const balance = { current: prompt("Avec quel montant souhaitez vous commencer ?") };
+
+export let winningNumber = '';
+let winningColor = "";
+
+
 export let valeursMisees = [];
 
 export const getWinningNumber = function (time) {
@@ -21,7 +24,6 @@ export const getWinningNumber = function (time) {
   });
 
   timeOut
-    .then((number) => { console.log(number); return number; })
     .then((number) => {
       winningNumber = number;
       $('.roulette > img').removeClass('rotated');
@@ -30,26 +32,27 @@ export const getWinningNumber = function (time) {
           $(div).addClass('winning');
         }
       }
-      for (const item of numbers) {
-        if (item.number === winningNumber) {
-          winningColor = item.color;
-        }
-      }
+      winningColor = setWinningColor(numbers);
+      
       for (const valeurMisee of valeursMisees) {
-        
+        let gains = 0;
         if (valeurMisee.numero === winningNumber.toString()) {
-          balance.current += valeurMisee.jeton * 35;
-          console.log("Vous avez trouvé LE chiffre!!");
+          gains = valeurMisee.jeton * 35;
+          balance.current += gains;
+          
         } 
-        if (valeurMisee.numero === winningColor) {
-          balance.current += valeurMisee.jeton * 2;
-          console.log("Bien deviné pour la couleur !");
+        if (valeurMisee.numero == winningColor) {
+          gains = valeurMisee.jeton * 2;
+          balance.current += gains;
+          
         }
         if (valeurMisee.numero === (winningNumber % 2 === 0).toString()){
-          balance.current += valeurMisee.jeton * 2;
-          console.log("Bien deviné pour le pair/impair !");
+          gains = valeurMisee.jeton * 2;
+          balance.current += gains;
+          
         }
         $('.balance > h2').text(`BALANCE : ${balance.current}`);
+        
       }
     })
     .then(() => {
@@ -61,10 +64,24 @@ export const getWinningNumber = function (time) {
       } 
 
       $(".valeurMisee").removeClass("valeurMisee");
-      $('.bet').remove();
+      for( const bet of $(".bet") ){
+        $(".lastBet").show();
+        $(`.lastBet`).append("<p>" + $(bet).text() + "</p>");
+        $(bet).remove();
+      }
+      $(".lastBet").append("<div class='separator'></div>");
+      
+      
       valeursMisees = [];
       createChips(balance.current);
       dragChips();
+      if(balance.current === 0){
+        $(".game").empty().append("<div><p>Vous avez perdu :(</p><button class='restart'>Rejouer?</button></div>")
+        $(".restart").on("click", function(){
+          location.href=location.href;
+          console.log("toto");
+        });
+      }
     })
     .catch((error) => console.log(error));
 };

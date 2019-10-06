@@ -45,3 +45,14 @@ export const createChips = function (nombre) {
     }
   }
 };
+
+
+export const createBetText = function(id, amount){
+  if(id === "true"){
+    $(`.${id}`).text(`${amount} on Even`);
+  } else if (id === "false"){
+    $(`.${id}`).text(`${amount} on Odd`);
+  } else{
+    $(`.${id}`).text(`${amount} on ${id}`);
+  }
+}

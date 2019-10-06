@@ -5,22 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Document</title>
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    />
+
     <link
       href="https://fonts.googleapis.com/css?family=Comfortaa:400,700&display=swap"
       rel="stylesheet"
     />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
   </head>
   <body>
+    <div class="container-fluid title">
+      <h1>Fantastic Roulette !!</h1>
+      <p>Place your bets, and then click on the roulette to start.</p>
+    </div>
     <div class="container-fluid game">
       <div class="jeu">
         <div class="bets">
           <h3>Past bets :</h3>
+          <div class="lastBet"></div>
+          <h3>Current bets :</h3>
           <p></p>
         </div>
         <div class="odd-even">
@@ -53,5 +54,11 @@
         </div>
       </div>
     </div>
+    <canvas
+      id="confetti-canvas"
+      style="display:block;z-index:999999;pointer-events:none"
+      width="100vw"
+      height="100vh"
+    ></canvas>
   </body>
 </html>

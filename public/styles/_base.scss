@@ -36,8 +36,22 @@ p {
     align-self: center;
     margin-right: 2rem;
     transition: 250ms all ease-in-out;
-    .bet:last-of-type{
-      color:red;
+    .bet{
+      font-weight: bold;
+    }
+    .lastBet{
+      position:relative;
+      padding-left: 1rem;
+      max-height: 200px;
+      overflow-y: scroll;
+      font-size: 0.8rem;
+      width: 100%;
+      .separator{
+        margin: 0.5rem 0;
+        width: 100%;
+        height: 1px;
+        border-bottom : 1px dashed grey;
+      }
     }
   }
   .odd-even {
@@ -135,7 +149,15 @@ p {
   }
 }
 
-
+.title{
+  display:flex;
+  flex-direction: column;
+  align-items:center;
+  margin-top: 2rem;
+  p{
+    font-style :italic;
+  }
+}
 
 .roulette {
   flex-direction: column;
@@ -145,6 +167,7 @@ p {
   img{
     width: 300px;
   }
+  
 }
 
 .rotated {
