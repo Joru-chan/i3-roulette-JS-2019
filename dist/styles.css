@@ -19,12 +19,17 @@ body {
 p {
   margin: 0; }
 
+.game {
+  color: white; }
+
 .title {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 5rem; }
+  margin-top: 5rem;
+  color: black; }
   .title p {
+    color: white;
     font-style: italic; }
 
 .jeu {
@@ -42,14 +47,15 @@ p {
     margin-right: 2rem;
     transition: 250ms all ease-in-out; }
     .jeu .bets h3 {
-      font-size: 1.35rem; }
+      font-size: 1.35rem;
+      color: black; }
     .jeu .bets .bet {
       color: white; }
     .jeu .bets .lastBet {
       position: relative;
       padding-left: 1rem;
       max-height: 200px;
-      overflow-y: scroll;
+      overflow-y: auto;
       font-size: 0.8rem;
       width: 100%; }
       .jeu .bets .lastBet .separator {
@@ -161,7 +167,8 @@ p {
   display: flex;
   flex-direction: column;
   margin: 0 auto;
-  margin-top: 9rem; }
+  margin-top: 9rem;
+  color: white; }
   .perdu p {
     font-size: 2rem; }
   .perdu button {

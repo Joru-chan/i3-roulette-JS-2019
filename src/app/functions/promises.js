@@ -67,7 +67,7 @@ export const getWinningNumber = function (time) {
     createChips(balance.current);
     dragChips();
     if(balance.current === 0){
-      $(".game").empty().append("<div class='perdu'><p>Vous avez perdu :(</p><button class='btn btn-success restart'>Rejouer?</button><img src='/public/assets/images/loss.gif' /></div>")
+      $(".game").empty().append("<div class='perdu'><p>Vous avez perdu :(</p><button class='btn btn-success restart'>Rejouer?</button><img src='assets/images/loss.gif' /></div>")
       $(".restart").on("click", function(){
         location.href=location.href;
       });

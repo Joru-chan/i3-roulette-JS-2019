@@ -14843,7 +14843,7 @@ var getWinningNumber = function getWinningNumber(time) {
     Object(_dragndrop__WEBPACK_IMPORTED_MODULE_4__["dragChips"])();
 
     if (balance.current === 0) {
-      jquery__WEBPACK_IMPORTED_MODULE_0___default()(".game").empty().append("<div class='perdu'><p>Vous avez perdu :(</p><button class='btn btn-success restart'>Rejouer?</button><img src='/public/assets/images/loss.gif' /></div>");
+      jquery__WEBPACK_IMPORTED_MODULE_0___default()(".game").empty().append("<div class='perdu'><p>Vous avez perdu :(</p><button class='btn btn-success restart'>Rejouer?</button><img src='assets/images/loss.gif' /></div>");
       jquery__WEBPACK_IMPORTED_MODULE_0___default()(".restart").on("click", function () {
         location.href = location.href;
       });
