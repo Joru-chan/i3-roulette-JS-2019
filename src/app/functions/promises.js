@@ -5,11 +5,9 @@ import { createChips } from './creation';
 import { dragChips, listIds } from './dragndrop';
 import { setWinningColor } from './setters';
 
-export const balance = { current: prompt("Avec quel montant souhaitez vous commencer ?") };
-
+export const balance = { current: prompt("💵 Avec quel montant souhaitez vous commencer ? 💵") };
 export let winningNumber = '';
 let winningColor = "";
-
 
 export let valeursMisees = [];
 
@@ -76,10 +74,9 @@ export const getWinningNumber = function (time) {
       createChips(balance.current);
       dragChips();
       if(balance.current === 0){
-        $(".game").empty().append("<div><p>Vous avez perdu :(</p><button class='restart'>Rejouer?</button></div>")
+        $(".game").empty().append("<div class='perdu'><p>Vous avez perdu :(</p><button class='btn btn-success restart'>Rejouer?</button></div>")
         $(".restart").on("click", function(){
           location.href=location.href;
-          console.log("toto");
         });
       }
     })

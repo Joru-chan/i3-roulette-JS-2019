@@ -37,7 +37,6 @@ export const dropChips = function () {
             if (data.case === event.target.id){
               data.amount += jetonValeur;
               createBetText(event.target.id, data.amount);
-              
             }
           }
         } else{

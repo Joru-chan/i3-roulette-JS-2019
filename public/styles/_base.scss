@@ -24,6 +24,19 @@ p {
   margin: 0;
 }
 
+.perdu{
+  display: flex;  
+  flex-direction: column;
+  margin: 0 auto;
+  margin-top: 9rem;
+  p {
+    font-size: 2rem;
+  }
+  button{
+    margin-top: 2rem;
+  }
+}
+
 .jeu {
   
   transform: scale(1.2);
@@ -36,8 +49,11 @@ p {
     align-self: center;
     margin-right: 2rem;
     transition: 250ms all ease-in-out;
+    h3{
+      font-size: 1.35rem;
+    }
     .bet{
-      font-weight: bold;
+      color: white;
     }
     .lastBet{
       position:relative;
