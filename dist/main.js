@@ -14838,7 +14838,6 @@ var getWinningNumber = function getWinningNumber(time) {
     }
 
     if (valeursMisees.length !== 0) {
-      debugger;
       jquery__WEBPACK_IMPORTED_MODULE_0___default()(".lastBet").append("<div class='separator'></div>");
     }
 
@@ -14914,7 +14913,7 @@ var setWinningColor = function setWinningColor(numbers) {
   return winningColor;
 };
 var ifNotInteger = "<div class='perdu'><p>La grande roulette magique n'accepte que des nombres entiers.</p><button class='btn btn-success restart'>Ré-insérez un montant correct</button></div>";
-var ifToto = "<div class='perdu'><p class='text-center'>Coucou Loïc :D</p><button class='btn btn-success restart'>Essaie plutôt avec un nombre :P</button><img src='/assets/images/nyancat.gif' /></div>";
+var ifToto = "<div class='perdu'><p class='text-center'>Coucou Loïc :D</p><button class='btn btn-success restart'>Essaie plutôt avec un nombre :P</button><img src='assets/images/nyancat.gif' /></div>";
 var ifNegNumber = "<div class='perdu'><p>Un nombre supérieur à zéro 😡 </p><button class='btn btn-success restart'>Ré-insérez un montant correct</button></div>";
 var ifOverAThousand = "<div class='perdu'><p>Pensez à votre famille. Dépensez un peu moins. Jouez avec modération 😬</p><button class='btn btn-success restart'>Ré-insérez un montant inférieur à 1000</button></div>";
 var setRestart = function setRestart() {
