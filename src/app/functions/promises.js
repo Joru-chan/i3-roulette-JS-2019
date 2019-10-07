@@ -63,7 +63,6 @@ export const getWinningNumber = function (time) {
       $(bet).remove();
     }
     if(valeursMisees.length !== 0){
-      debugger;
       $(".lastBet").append("<div class='separator'></div>");
     }
     valeursMisees = [];
